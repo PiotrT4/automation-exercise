@@ -1,7 +1,6 @@
 package pageobject;
 
 import helpers.Browser;
-import org.openqa.selenium.By;
 
 public class OrderPlacedPage extends BasePage {
 
