@@ -13,7 +13,7 @@ public class RestApiRequests {
         personalData = new PersonalData(new TestDataReader());
     }
 
-    public Response createAccount() {
+    public void createAccount() {
         String requestBody =
                 "name=" + personalData.firstName +
                 "&email=" + personalData.email +
@@ -35,11 +35,9 @@ public class RestApiRequests {
                 .post("/createAccount");
 
         System.out.println("Response body: " + response.asString());
-
-        return response;
     }
 
-    public Response deleteAccount() {
+    public void deleteAccount() {
         String requestBody =
                 "&email=" + personalData.email +
                 "&password=" + personalData.password;
@@ -51,8 +49,6 @@ public class RestApiRequests {
                 .delete("/deleteAccount");
 
         System.out.println("Response body: " + response.asString());
-
-        return response;
     }
 
 
