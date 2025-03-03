@@ -1,8 +1,6 @@
 package pageobject;
 
 import helpers.Browser;
-import helpers.ByHelper;
-import helpers.ProductData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

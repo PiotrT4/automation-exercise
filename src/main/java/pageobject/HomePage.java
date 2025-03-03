@@ -1,11 +1,6 @@
 package pageobject;
 
 import helpers.Browser;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-import java.util.Random;
 
 public class HomePage extends BasePage {
 

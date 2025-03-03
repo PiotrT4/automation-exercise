@@ -11,7 +11,6 @@ public class CartPage extends BasePage {
     private final By modalCheckoutLoginButtonLocator = By.cssSelector(".modal-body a[href='/login']");
     private final By loginPageTitleLocator = By.cssSelector(".signup-form h2");
     private final By deleteProductByIdLocator = By.cssSelector(".cart_quantity_delete[data-product-id='%s']");
-    private final By emptyCartLocator = By.cssSelector("#empty_cart");
 
     public final SubscriptionComponent subscriptionComponent;
     public final CartCheckerComponent cartCheckerComponent;

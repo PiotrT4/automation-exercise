@@ -55,7 +55,7 @@ public class CartTests extends BaseTests {
                 .cartModalComponent.clickViewCart();
 
         Assert.isTrue(cartPage.cartCheckerComponent.verifyQuantityByQuantity(4),
-                "Product does not have "+ String.valueOf(4) +" quantity!");
+                "Product does not have 4 quantity!");
     }
 
     @Test
@@ -88,7 +88,7 @@ public class CartTests extends BaseTests {
 
         if ( !cartPage.cartCheckerComponent.isInCartById(productData1.getId()) ) {
             throw new RuntimeException("Product with ID " + productData1.getId() + " is not in cart before login!");
-        };
+        }
 
         cartPage.headerComponent.goToLogin()
                 .fillInLoginForm(personalData)

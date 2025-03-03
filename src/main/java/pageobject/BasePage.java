@@ -1,8 +1,6 @@
 package pageobject;
 
 import helpers.Browser;
-import helpers.PersonalData;
-import helpers.ProductData;
 
 public abstract class BasePage {
 

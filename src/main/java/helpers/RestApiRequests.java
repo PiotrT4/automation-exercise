@@ -14,24 +14,6 @@ public class RestApiRequests {
     }
 
     public Response createAccount() {
-//        String requestBody =
-//                "name=Jan" +
-//                "&email=jan.kowalski@mail.com" +
-//                "&password=test123" +
-//                "&title=Mr" +
-//                "&birth_date=15" +
-//                "&birth_month=08" +
-//                "&birth_year=1990" +
-//                "&firstname=Adam" +
-//                "&lastname=Kowalski" +
-//                "&company=ExampleCorp" +
-//                "&address1=Main+Street+123" +
-//                "&address2=Apt+4B" +
-//                "&country=Poland" +
-//                "&zipcode=00-001" +
-//                "&state=Mazowieckie" +
-//                "&city=Warsaw" +
-//                "&mobile_number=%2B48123456789";
         String requestBody =
                 "name=" + personalData.firstName +
                 "&email=" + personalData.email +
@@ -59,8 +41,6 @@ public class RestApiRequests {
 
     public Response deleteAccount() {
         String requestBody =
-//                "email=jan.kowalski@mail.com" +
-//                "&password=test123";
                 "&email=" + personalData.email +
                 "&password=" + personalData.password;
 
