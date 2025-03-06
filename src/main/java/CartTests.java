@@ -100,4 +100,18 @@ public class CartTests extends BaseTests {
 
         requests.deleteAccount();
     }
+
+    @Test
+    @Description("Test Case 22: Add to cart from Recommended items")
+    public void add_to_cart_recommended_item_should_display_in_cart() {
+        HomePage homePage = new HomePage(browser);
+        CartPage cartPage =
+                homePage
+                .runBrowser()
+                .addToCartRecommendedProduct(productData1)
+                .cartModalComponent.clickViewCart();
+
+        Assertions.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+                "Recommended product with id " + productData1.getId() + " is not added to cart!");
+    }
 }
