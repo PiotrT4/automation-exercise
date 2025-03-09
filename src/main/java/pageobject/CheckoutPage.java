@@ -21,10 +21,12 @@ public class CheckoutPage extends BasePage {
     private final By paymentPageTitleLocator = By.cssSelector("#cart_items");
 
     public final CartCheckerComponent cartCheckerComponent;
+    public final HeaderComponent headerComponent;
 
     public CheckoutPage(Browser browser) {
         super(browser);
         cartCheckerComponent = new CartCheckerComponent(browser);
+        headerComponent = new HeaderComponent(browser);
     }
 
     public void verifyDeliveryAddress(PersonalData personalData) {
@@ -97,4 +99,11 @@ public class CheckoutPage extends BasePage {
         browser.wait.until(driver -> driver.findElement(paymentPageTitleLocator));
         return new PaymentPage(browser);
     }
+
+    public boolean isDeliveryAndBillingAddressesCorrect(PersonalData personalData) {
+        verifyDeliveryAddress(personalData);
+        verifyBillingAddress(personalData);
+        return true;
+    }
+
 }
