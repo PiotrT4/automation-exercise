@@ -29,7 +29,7 @@ public class RegisterPage extends BasePage {
         super(browser);
     }
 
-    public RegisterPage fillInLongSingupForm(PersonalData personalData) {
+    public RegisterPage fillInLongRegisterForm(PersonalData personalData) {
         List<WebElement> titleList = browser.driver.findElements(titlesLocator);
         findWebElementByText(titleList, personalData.title).click();
 

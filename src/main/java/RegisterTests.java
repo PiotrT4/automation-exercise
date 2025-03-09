@@ -14,7 +14,7 @@ public class RegisterTests extends BaseTests {
                 .runBrowser()
                 .headerComponent.goToLogin()
                 .fillInShortRegisterForm(personalData))
-                .fillInLongSingupForm(personalData))
+                .fillInLongRegisterForm(personalData))
                 .clickCreatedAccount()
                 .clickContinue(personalData.firstName)
                 .headerComponent.goToDeletedAccount();

@@ -22,7 +22,7 @@ public class PlaceOrderTests extends BaseTests {
                 .fillInShortRegisterForm(personalData);
 
         CheckoutPage checkoutPage = ((CheckoutPage)((RegisterPage) basePage)
-                .fillInLongSingupForm(personalData)
+                .fillInLongRegisterForm(personalData)
                 .clickCreatedAccount()
                 .clickContinue(personalData.firstName)
                 .headerComponent.goToCart()
@@ -60,7 +60,7 @@ public class PlaceOrderTests extends BaseTests {
         RegisterPage registerPage = (RegisterPage) basePage;
 
         CartPage cartPage =  registerPage
-                .fillInLongSingupForm(personalData)
+                .fillInLongRegisterForm(personalData)
                 .clickCreatedAccount()
                 .clickContinue(personalData.firstName)
                 .productInteractionComponent.clickAddToCartById(productData1)
