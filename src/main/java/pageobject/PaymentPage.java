@@ -27,9 +27,9 @@ public class PaymentPage extends BasePage {
         return this;
     }
 
-    public OrderPlacedPage clickPayAndConfirmOrder() {
+    public PlaceOrderPage clickPayAndConfirmOrder() {
         browser.driver.findElement(payAndConfirmOrderButtonLocator).click();
         browser.wait.until(driver -> driver.findElement(orderPlacedPageTitleLocator));
-        return new OrderPlacedPage(browser);
+        return new PlaceOrderPage(browser);
     }
 }
