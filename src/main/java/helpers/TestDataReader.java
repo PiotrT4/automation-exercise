@@ -33,6 +33,8 @@ public class TestDataReader {
     private final String cvc;
     private final String expirationMonth;
     private final String expirationYear;
+    private final String downloadFilesDirectoryPath;
+    private final String invoiceFileName;
 
     public TestDataReader() {
         String configurationPath = "src/main/resources/testData.properties";
@@ -79,6 +81,8 @@ public class TestDataReader {
         cvc = properties.getProperty("cvc");
         expirationMonth = properties.getProperty("expirationMonth");
         expirationYear = properties.getProperty("expirationYear");
+        downloadFilesDirectoryPath = properties.getProperty("downloadFilesDirectoryPath");
+        invoiceFileName = properties.getProperty("invoiceFileName");
     }
 
     public String getEmail() {
@@ -209,5 +213,15 @@ public class TestDataReader {
     public String getNameOnCard() {
         if (!nameOnCard.isEmpty()) return nameOnCard;
         else throw new RuntimeException("\"nameOnCard\" is not specified in the testData.properties file");
+    }
+
+    public String getDownloadFilesDirectoryPath() {
+        if (!downloadFilesDirectoryPath.isEmpty()) return downloadFilesDirectoryPath;
+        else throw new RuntimeException("\"downloadFilesDirectoryPath\" is not specified in the testData.properties file");
+    }
+
+    public String getInvoiceFileName() {
+        if (!invoiceFileName.isEmpty()) return invoiceFileName;
+        else throw new RuntimeException("\"invoiceFileName\" is not specified in the testData.properties file");
     }
 }

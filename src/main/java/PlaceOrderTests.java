@@ -1,3 +1,4 @@
+import dev.failsafe.internal.util.Assert;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
@@ -117,5 +118,54 @@ public class PlaceOrderTests extends BaseTests {
                 "Account did not deleted!");
 
         deletedAccountPage.clickContinue();
+    }
+
+    @Test
+    @Description("Test Case 24: Download Invoice after purchase order")
+    public void on_place_order_page_should_positive_download_invoice() {
+
+        RestApiRequests restApiRequests = new RestApiRequests();
+        restApiRequests.deleteAccount();
+
+        HomePage homePage = new HomePage(browser);
+        BasePage basePage1 =  homePage
+                .runBrowser()
+                .headerComponent.goToProducts()
+                .productInteractionComponent.clickAddToCartById(productData1)
+                .cartModalComponent.clickContinueShopping()
+                .productInteractionComponent.clickAddToCartById(productData2)
+                .cartModalComponent.clickViewCart()
+                .headerComponent.goToLogin()
+                .fillInShortRegisterForm(personalData);
+
+        RegisterPage registerPage = (RegisterPage) basePage1;
+
+        BasePage basePage2 = registerPage
+                .fillInLongRegisterForm(personalData)
+                .clickCreatedAccount()
+                .clickContinue(personalData.firstName)
+                .headerComponent.goToCart()
+                .clickProceedToCheckout();
+
+        CheckoutPage checkoutPage = (CheckoutPage) basePage2;
+
+        checkoutPage.verifyDeliveryAddress(personalData);
+        checkoutPage.verifyBillingAddress(personalData);
+
+        PlaceOrderPage placeOrderPage = checkoutPage
+                .clickPlaceOrder()
+                .fillInPaymentData(paymentData)
+                .clickPayAndConfirmOrder()
+                .clickDownloadInvoice();
+
+        Assert.isTrue(placeOrderPage.isInvoiceExists(filePathData.downloadFilesDirectoryPath,
+                        filePathData.invoiceFileName),
+                "Could not find invoice with name " + filePathData.invoiceFileName +
+                        " in directory path: " + filePathData.downloadFilesDirectoryPath + "!");
+
+
+        placeOrderPage.deleteInvoice(filePathData.downloadFilesDirectoryPath, filePathData.invoiceFileName);
+        placeOrderPage.headerComponent.goToDeletedAccount().clickContinue();
+
     }
 }

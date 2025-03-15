@@ -13,6 +13,7 @@ public class BaseTests {
     protected static ProductData productData3;
     protected static PersonalData personalData;
     protected static PaymentData paymentData;
+    protected static FilePathData filePathData;
 
     @BeforeAll
     public static void loadConfiguration() { configurationReader = new ConfigurationReader(); }
@@ -22,6 +23,7 @@ public class BaseTests {
         testDataReader = new TestDataReader();
         createPersonalData();
         createPaymentData();
+        createFilePathData();
     }
 
     private static void createProductsData() {
@@ -36,6 +38,10 @@ public class BaseTests {
 
     private static void createPaymentData() {
         paymentData = new PaymentData(testDataReader);
+    }
+
+    private static void createFilePathData() {
+        filePathData = new FilePathData(testDataReader);
     }
 
     @BeforeEach
