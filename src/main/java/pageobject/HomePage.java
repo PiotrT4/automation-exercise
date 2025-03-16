@@ -15,6 +15,7 @@ public class HomePage extends BasePage {
     public final ProductInteractionComponent productInteractionComponent;
     public final CategorySidebarComponent categorySidebarComponent;
     public final CartModalComponent cartModalComponent;
+    public final ScrollHelperComponent scrollHelperComponent;
 
     public HomePage(Browser browser) {
         super(browser);
@@ -23,6 +24,7 @@ public class HomePage extends BasePage {
         productInteractionComponent = new ProductInteractionComponent(browser);
         categorySidebarComponent = new CategorySidebarComponent(browser);
         cartModalComponent = new CartModalComponent(browser);
+        scrollHelperComponent = new ScrollHelperComponent(browser);
     }
 
     public HomePage runBrowser() {
