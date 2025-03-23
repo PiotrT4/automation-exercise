@@ -4,13 +4,13 @@ import helpers.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
-public class ScrollHelperComponent extends BasePage {
+public class ScrollComponent extends BasePage {
 
     private final By subscriptionTextLocator = By.cssSelector(".single-widget h2");
     private final By scrollBackToTopButtonLocator = By.cssSelector("#scrollUp");
     private final By logoLocator = By.cssSelector(".logo.pull-left");
 
-    public ScrollHelperComponent(Browser browser) {
+    public ScrollComponent(Browser browser) {
         super(browser);
     }
 
