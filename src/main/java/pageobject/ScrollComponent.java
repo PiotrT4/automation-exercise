@@ -26,4 +26,9 @@ public class ScrollComponent extends BasePage {
     public boolean isLogoVisible() {
         return browser.driver.findElement(logoLocator).isDisplayed();
     }
+
+    public void scrollUpToTopOfPage() {
+        Actions actions = new Actions(browser.driver);
+        actions.moveToElement(browser.driver.findElement(logoLocator)).perform();
+    }
 }
