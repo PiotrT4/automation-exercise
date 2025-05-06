@@ -1,3 +1,4 @@
+import groovy.util.logging.Log;
 import pageobject.*;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
@@ -31,12 +32,14 @@ public class RegisterTests extends BaseTests {
         request.createAccount();
 
         HomePage homePage = new HomePage(browser);
-        BasePage loginPage = homePage
+        BasePage loginPage1 = homePage
                 .runBrowser()
                 .headerComponent.goToLogin()
                 .fillInShortRegisterForm(personalData);
 
-        Assertions.assertTrue(((LoginPage) loginPage).ifDisplayRegisterError(),
+        LoginPage loginPage2 = (LoginPage)loginPage1;
+
+        Assertions.assertTrue(loginPage2.ifDisplayRegisterError(),
                 "Error did not display.");
 
         request.deleteAccount();
