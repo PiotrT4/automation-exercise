@@ -2,6 +2,9 @@ package pageobject;
 
 import helpers.Browser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CategorySidebarComponent extends BasePage {
 
@@ -24,6 +27,7 @@ public class CategorySidebarComponent extends BasePage {
     }
 
     public CategoryProductsPage clickDressSubcategory() {
+        browser.wait.until(driver -> driver.findElement(dressSubcategoryButtonLocator).isDisplayed());
         browser.driver.findElement(dressSubcategoryButtonLocator).click();
         browser.wait.until(driver -> driver.findElement(breadcrumbsLocator).getText().equals("Women > Dress"));
         return new CategoryProductsPage(browser);
@@ -36,6 +40,7 @@ public class CategorySidebarComponent extends BasePage {
     }
 
     public CategoryProductsPage clickTshirtsSubcategory() {
+        browser.wait.until(driver -> driver.findElement(tshirtsSubcategoryButtonLocator).isDisplayed());
         browser.driver.findElement(tshirtsSubcategoryButtonLocator).click();
         browser.wait.until(driver -> driver.findElement(breadcrumbsLocator).getText().equals("Men > Tshirts"));
         return new CategoryProductsPage(browser);
