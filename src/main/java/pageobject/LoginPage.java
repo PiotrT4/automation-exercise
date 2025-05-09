@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     private final By loginEmailInputLocator = By.cssSelector("input[data-qa='login-email']");
     private final By loginPasswordInputLocator = By.cssSelector("input[data-qa='login-password']");
     private final By loginButtonLocator = By.cssSelector("button[data-qa='login-button']");
-    private final By loginErrorMessageLocator = By.cssSelector("input[data-qa='login-password']+*");
+    private final By loginErrorMessageLocator = By.cssSelector(".login-form p");
     private final By registerErrorMessageLocator = By.cssSelector("input[name='form_type']+*");
     private final By loggedAsLocator = By.cssSelector(".shop-menu li:last-child a");
 
@@ -51,6 +51,7 @@ public class LoginPage extends BasePage {
     }
 
     public String getLoginError() {
+        browser.wait.until(driver -> driver.findElement(loginErrorMessageLocator).isDisplayed());
         return browser.driver.findElement(loginErrorMessageLocator).getText();
     }
 
@@ -60,6 +61,12 @@ public class LoginPage extends BasePage {
 
     public boolean ifDisplayRegisterError() {
         final String errorDescription = "Email Address already exist!";
-        return browser.driver.findElement(registerErrorMessageLocator).getText().equals(errorDescription);
+        try {
+            browser.wait.until(
+                    driver -> driver.findElement(registerErrorMessageLocator).getText().equals(errorDescription));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
