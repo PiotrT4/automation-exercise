@@ -1,7 +1,7 @@
 # automation-exercise
 
 ## Project Description
-The **automation-exercise** project is a framework for automating tests for the web application (automationexercise.com)[https://www.automationexercise.com/]. It is written in **Java** using **Selenium WebDriver**, **TestNG**, and **Maven**.
+The **automation-exercise** project is a framework for automating tests for the web application [automationexercise.com](https://www.automationexercise.com/). It is written in **Java** using **Selenium WebDriver**, **TestNG**, and **Maven**.
 
 The project uses the **Page Object Model** design pattern. The project structure is divided into classes representing the application's pages, test classes, and utility classes:
 
