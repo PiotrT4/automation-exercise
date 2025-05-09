@@ -1,6 +1,6 @@
 # automation-exercise
 
-## Project Description
+## Project Description 🧑‍💻
 The **automation-exercise** project is a framework for automating tests for the web application [automationexercise.com](https://www.automationexercise.com/). It is written in **Java** using **Selenium WebDriver**, **TestNG**, and **Maven**.
 
 The project uses the **Page Object Model** design pattern. The project structure is divided into classes representing the application's pages, test classes, and utility classes:
@@ -13,13 +13,13 @@ Additionally, there are configuration files located in the `src/main/resources` 
 - Browser configuration: `configuration.properties`
 - Test data configuration: `testData.properties`
 
-## Technologies (versions I worked with)
+## Technologies (versions I worked with) 🛠️
 - Java 23.0
 - Selenium WebDriver 4.27
 - TestNG 7.11
 - Maven 3.9
 
-## Running the Project
+## Running the Project 🏃
 1. Clone the repository.
    ```bash
    git clone https://github.com/PiotrT4/automation-exercise.git
@@ -33,6 +33,9 @@ Additionally, there are configuration files located in the `src/main/resources` 
 5. Choose the configuration to run all test cases: `All in automation-exercise`.
 
 6. Run the tests by clicking `Play` button or using the keyboard shortcut `Shift + F10`.
+
+## Test cases documentation
+[Link to documentation 📖](https://docs.google.com/document/d/1EEvFkw5ZgiVulhZb4asuqy3dQ_GdqK6a2WusjADhuP4/edit?usp=sharing)
 
 ## License
 
