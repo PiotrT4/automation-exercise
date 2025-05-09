@@ -1,7 +1,7 @@
 # automation-exercise
 
 ## Project Description
-The **automation-exercise** project is a framework for automating tests for the web application **automationexercise.com**. It is written in **Java** using **Selenium WebDriver**, **TestNG**, and **Maven**.
+The **automation-exercise** project is a framework for automating tests for the web application (automationexercise.com)[https://www.automationexercise.com/]. It is written in **Java** using **Selenium WebDriver**, **TestNG**, and **Maven**.
 
 The project uses the **Page Object Model** design pattern. The project structure is divided into classes representing the application's pages, test classes, and utility classes:
 
@@ -13,7 +13,7 @@ Additionally, there are configuration files located in the `src/main/resources` 
 - Browser configuration: `configuration.properties`
 - Test data configuration: `testData.properties`
 
-## Technologies (Versions I Worked With)
+## Technologies (versions I worked with)
 - Java 23.0
 - Selenium WebDriver 4.27
 - TestNG 7.11
@@ -37,10 +37,7 @@ Wait until IntelliJ has fully loaded the project and all dependencies have been 
 Choose the configuration to run all test cases: **“All in automation-exercise”**.
 
 6. Run the tests
-Run the tests by clicking the **play** button or using the keyboard shortcut:
-```bash
-Shift + F10
-```
+Run the tests by clicking the **play** button or using the keyboard shortcut `Shift + F10`.
 
 ## License
 
