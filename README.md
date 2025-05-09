@@ -36,7 +36,7 @@ Wait until IntelliJ has fully loaded the project and done indexing.
 Choose the configuration to run all test cases: `All in automation-exercise`.
 
 6. Run the tests
-Run the tests by clicking the `play` button or using the keyboard shortcut `Shift + F10`.
+Run the tests by clicking `Play` button or using the keyboard shortcut `Shift + F10`.
 
 ## License
 
