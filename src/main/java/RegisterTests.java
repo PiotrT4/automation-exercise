@@ -10,12 +10,20 @@ public class RegisterTests extends BaseTests {
     @Test
     @Description("Test Case 1: Register User")
     public void register_new_account_should_successfully_create_and_delete_account() {
+        RestApiRequests restApiRequests = new RestApiRequests();
+        restApiRequests.deleteAccount();
+
         HomePage homePage = new HomePage(browser);
-        DeletedAccountPage deletedAccountPage = (((RegisterPage) homePage
+
+        BasePage basePage = homePage
                 .runBrowser()
                 .headerComponent.goToLogin()
-                .fillInShortRegisterForm(personalData))
-                .fillInLongRegisterForm(personalData))
+                .fillInShortRegisterForm(personalData);
+
+        RegisterPage registerPage = (RegisterPage) basePage;
+
+        DeletedAccountPage deletedAccountPage = registerPage
+                .fillInLongRegisterForm(personalData)
                 .clickCreatedAccount()
                 .clickContinue(personalData.firstName)
                 .headerComponent.goToDeletedAccount();
