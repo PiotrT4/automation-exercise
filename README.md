@@ -34,10 +34,10 @@ Additionally, there are configuration files located in the `src/main/resources` 
 
 6. Run the tests by clicking `Play` button or using the keyboard shortcut `Shift + F10`.
 
-## Test cases documentation
-[Link to documentation 📖](https://docs.google.com/document/d/1EEvFkw5ZgiVulhZb4asuqy3dQ_GdqK6a2WusjADhuP4/edit?usp=sharing)
+## Test cases documentation 📖
+[Link to documentation](https://docs.google.com/document/d/1EEvFkw5ZgiVulhZb4asuqy3dQ_GdqK6a2WusjADhuP4/edit?usp=sharing)
 
-## License
+## License 🧮
 
 MIT License
 
