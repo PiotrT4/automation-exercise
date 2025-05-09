@@ -24,20 +24,19 @@ Additionally, there are configuration files located in the `src/main/resources` 
    ```bash
    git clone https://github.com/PiotrT4/automation-exercise.git
    ```
-2. Open IntelliJ IDEA
-Launch **IntelliJ IDEA**.
+2. Launch IntelliJ IDEA
 
 3. Open the downloaded project
 Open the previously downloaded **automation-exercise** project in IntelliJ IDEA.
 
 4. Wait for the project to load completely
-Wait until IntelliJ has fully loaded the project and all dependencies have been configured.
+Wait until IntelliJ has fully loaded the project and done indexing.
 
 5. Select the configuration
-Choose the configuration to run all test cases: **“All in automation-exercise”**.
+Choose the configuration to run all test cases: `All in automation-exercise`.
 
 6. Run the tests
-Run the tests by clicking the **play** button or using the keyboard shortcut `Shift + F10`.
+Run the tests by clicking the `play` button or using the keyboard shortcut `Shift + F10`.
 
 ## License
 
