@@ -5,29 +5,42 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pageobject.*;
 
+import java.nio.charset.CharacterCodingException;
+
 public class PlaceOrderTests extends BaseTests {
 
     @Test
     @Description("Test Case 14: Place Order: Register while Checkout")
     public void register_new_account_on_checkout_should_positive_create_account_order_and_delete_account() {
+        RestApiRequests restApiRequests = new RestApiRequests();
+        restApiRequests.deleteAccount();
+
         HomePage homePage = new HomePage(browser);
-        BasePage basePage = (((CartPage) homePage
+        BasePage basePage1 = homePage
                 .runBrowser()
                 .headerComponent.goToProducts()
                 .productInteractionComponent.clickAddToCartById(productData1)
                 .cartModalComponent.clickContinueShopping()
                 .productInteractionComponent.clickAddToCartById(productData2)
                 .cartModalComponent.clickViewCart()
-                .clickProceedToCheckout())
-                .clickRegisterOrLogin())
+                .clickProceedToCheckout();
+
+        CartPage cartPage = (CartPage) basePage1;
+
+        BasePage basePage2 = cartPage
+                .clickRegisterOrLogin()
                 .fillInShortRegisterForm(personalData);
 
-        CheckoutPage checkoutPage = ((CheckoutPage)((RegisterPage) basePage)
+        RegisterPage registerPage = (RegisterPage) basePage2;
+
+        BasePage basePage3 = registerPage
                 .fillInLongRegisterForm(personalData)
                 .clickCreatedAccount()
                 .clickContinue(personalData.firstName)
                 .headerComponent.goToCart()
-                .clickProceedToCheckout());
+                .clickProceedToCheckout();
+
+        CheckoutPage checkoutPage = (CheckoutPage) basePage3;
 
         checkoutPage.verifyDeliveryAddress(personalData);
         checkoutPage.verifyBillingAddress(personalData);
