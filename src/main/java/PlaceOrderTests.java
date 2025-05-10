@@ -61,7 +61,6 @@ public class PlaceOrderTests extends BaseTests {
     @Test
     @Description("Test Case 15: Place Order: Register before Checkout")
     public void register_new_account_place_order_should_positive_create_account_order_and_delete_account() {
-
         RestApiRequests restApiRequests = new RestApiRequests();
         restApiRequests.deleteAccount();
 
