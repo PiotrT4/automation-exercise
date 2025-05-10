@@ -11,7 +11,6 @@ public class CheckoutTests extends BaseTests {
     @Test
     @Description("Test Case 23: Verify address details in checkout page")
     public void address_details_on_checkout_should_be_same_as_user_address() {
-
         HomePage homePage = new HomePage(browser);
         BasePage basePage1 = homePage
                 .runBrowser()
