@@ -135,7 +135,6 @@ public class PlaceOrderTests extends BaseTests {
     @Test
     @Description("Test Case 24: Download Invoice after purchase order")
     public void on_place_order_page_should_positive_download_invoice() {
-
         RestApiRequests restApiRequests = new RestApiRequests();
         restApiRequests.deleteAccount();
 
