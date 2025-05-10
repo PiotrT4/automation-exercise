@@ -12,12 +12,15 @@ public class SubscriptionTests extends BaseTests {
     public void add_email_to_newsletter_on_homepage_should_successfully_subscribed() {
 
         HomePage homePage = new HomePage(browser);
-        BasePage basePage = ((SubscriptionComponent) homePage
+        BasePage basePage = homePage
                 .runBrowser()
-                .subscriptionComponent.fillInEmail(personalData))
-                .clickSubmit();
+                .subscriptionComponent.fillInEmail(personalData);
 
-        Assert.isTrue(((SubscriptionComponent)basePage).isPositiveMessage(),
+        SubscriptionComponent subscriptionComponent = (SubscriptionComponent) basePage;
+
+        subscriptionComponent.clickSubmit();
+
+        Assert.isTrue(subscriptionComponent.isPositiveMessage(),
                 "Message about added email to subscription is not displayed!");
     }
 
