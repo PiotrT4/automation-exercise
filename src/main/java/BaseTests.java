@@ -15,17 +15,6 @@ public class BaseTests {
     protected static PaymentData paymentData;
     protected static FilePathData filePathData;
 
-    @BeforeAll
-    public static void loadConfiguration() { configurationReader = new ConfigurationReader(); }
-
-    @BeforeAll
-    public static void loadAndCreateTestData() {
-        testDataReader = new TestDataReader();
-        createPersonalData();
-        createPaymentData();
-        createFilePathData();
-    }
-
     private static void createProductsData() {
         productData1 = new ProductData(testDataReader.getProduct1Id());
         productData2 = new ProductData(testDataReader.getProduct2Id());
@@ -42,6 +31,15 @@ public class BaseTests {
 
     private static void createFilePathData() {
         filePathData = new FilePathData(testDataReader);
+    }
+
+    @BeforeAll
+    public static void loadAndCreateTestData() {
+        configurationReader = new ConfigurationReader();
+        testDataReader = new TestDataReader();
+        createPersonalData();
+        createPaymentData();
+        createFilePathData();
     }
 
     @BeforeEach
