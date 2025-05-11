@@ -6,7 +6,7 @@ import helpers.ProductData;
 import org.openqa.selenium.By;
 
 public class HomePage extends BasePage {
-    private final By addToCartRecommendedProductButtonByIdLocator = By.cssSelector(
+    private final By recommendedProductAddToCartButtonByIdLocator = By.cssSelector(
             "#recommended-item-carousel [data-product-id='%s']");
     private final By cartModalLocator = By.cssSelector("div#cartModal");
 
@@ -37,7 +37,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage addToCartRecommendedProduct(ProductData productData1) {
-        ByHelper oldLocator = new ByHelper(addToCartRecommendedProductButtonByIdLocator);
+        ByHelper oldLocator = new ByHelper(recommendedProductAddToCartButtonByIdLocator);
         By newLocator = oldLocator.getNewLocatorWithProductId(productData1.getId());
         browser.wait.until(driver -> driver.findElement(newLocator).isDisplayed());
         browser.driver.findElement(newLocator).click();
