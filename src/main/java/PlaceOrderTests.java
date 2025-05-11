@@ -4,8 +4,6 @@ import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.*;
 
-import java.nio.charset.CharacterCodingException;
-
 public class PlaceOrderTests extends BaseTests {
 
     @Test
