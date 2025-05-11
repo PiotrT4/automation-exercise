@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.HomePage;
@@ -16,7 +16,7 @@ public class ProductsTests extends  BaseTests {
                 .headerComponent.goToProducts()
                 .searchProduct(personalData.searchProduct);
 
-        Assert.isTrue(productsPage.isAllProductsOnListVisible(),
+        Assert.assertTrue(productsPage.isAllProductsOnListVisible(),
                 "Some products are not visible on product page or search did not find any product!");
     }
 }

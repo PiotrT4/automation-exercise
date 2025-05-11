@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.BasePage;
@@ -31,7 +31,7 @@ public class CheckoutTests extends BaseTests {
 
         CheckoutPage checkoutPage = (CheckoutPage) basePage2;
 
-        Assert.isTrue(checkoutPage.isDeliveryAndBillingAddressesCorrect(personalData),
+        Assert.assertTrue(checkoutPage.isDeliveryAndBillingAddressesCorrect(personalData),
                 "Delivery address or Billing Address is not correct!");
 
         checkoutPage.headerComponent.goToDeletedAccount().clickContinue();

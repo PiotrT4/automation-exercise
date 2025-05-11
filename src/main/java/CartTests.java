@@ -1,10 +1,11 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pageobject.CartPage;
 import pageobject.HomePage;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CartTests extends BaseTests {
 
@@ -21,23 +22,23 @@ public class CartTests extends BaseTests {
                 .productInteractionComponent.clickAddToCartById(productData2)
                 .cartModalComponent.clickViewCart();
 
-        Assertions.assertAll( "Verify if products are in cart:",
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+        assertAll( "Verify if products are in cart:",
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
                         "First product is not added to cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyPriceById(productData1),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData1),
                         "First product price is not correct in cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData1),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData1),
                         "First product quantity is not correct in cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData1),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData1),
                         "First product total price is not correct in cart!"),
 
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.isInCartById(productData2.getId()),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData2.getId()),
                         "Second product is not added to cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyPriceById(productData2),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData2),
                         "Second product price is not correct in cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData2),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData2),
                         "Second product quantity is not correct in cart!"),
-                () -> Assert.isTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData2),
+                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData2),
                         "Second product total price is not correct in cart!")
         );
     }
@@ -54,7 +55,7 @@ public class CartTests extends BaseTests {
                 .clickAddToCart()
                 .cartModalComponent.clickViewCart();
 
-        Assert.isTrue(cartPage.cartCheckerComponent.verifyQuantityByQuantity(4),
+        Assert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityByQuantity(4),
                 "Product does not have 4 quantity!");
     }
 
@@ -68,7 +69,7 @@ public class CartTests extends BaseTests {
                 .cartModalComponent.clickViewCart()
                 .removeProductById(productData1.getId());
 
-        Assertions.assertFalse(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+        Assert.assertFalse(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
                 "First product is still in cart after removing!");
     }
 
@@ -95,7 +96,7 @@ public class CartTests extends BaseTests {
                 .headerComponent.goToCart()
                 .cartCheckerComponent.isInCartById(productData1.getId());
 
-        Assert.isTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+        Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
                 "Product with ID " + productData1.getId() + " is not in cart after login!");
 
         requests.deleteAccount();
@@ -110,7 +111,7 @@ public class CartTests extends BaseTests {
                 .addToCartRecommendedProduct(productData1)
                 .cartModalComponent.clickViewCart();
 
-        Assertions.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+        Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
                 "Recommended product with id " + productData1.getId() + " is not added to cart!");
     }
 }

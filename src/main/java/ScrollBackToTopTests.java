@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.HomePage;
@@ -13,7 +13,7 @@ public class ScrollBackToTopTests extends BaseTests {
         homePage.scrollComponent.scrollDownToBottomOfPage();
         homePage.scrollComponent.click();
 
-        Assert.isTrue(homePage.scrollComponent.isLogoVisible(),
+        Assert.assertTrue(homePage.scrollComponent.isLogoVisible(),
                 "Logo in not visible!");
     }
 
@@ -25,7 +25,7 @@ public class ScrollBackToTopTests extends BaseTests {
         homePage.scrollComponent.scrollDownToBottomOfPage();
         homePage.scrollComponent.scrollUpToTopOfPage();
 
-        Assert.isTrue(homePage.scrollComponent.isLogoVisible(),
+        Assert.assertTrue(homePage.scrollComponent.isLogoVisible(),
                 "Logo in not visible!");
     }
 }

@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.BasePage;
@@ -20,7 +20,7 @@ public class SubscriptionTests extends BaseTests {
 
         subscriptionComponent.clickSubmit();
 
-        Assert.isTrue(subscriptionComponent.isPositiveMessage(),
+        Assert.assertTrue(subscriptionComponent.isPositiveMessage(),
                 "Message about added email to subscription is not displayed!");
     }
 
@@ -38,7 +38,7 @@ public class SubscriptionTests extends BaseTests {
 
         subscriptionComponent.clickSubmit();
 
-        Assert.isTrue(subscriptionComponent.isPositiveMessage(),
+        Assert.assertTrue(subscriptionComponent.isPositiveMessage(),
                 "Message about added email to subscription is not displayed!");
     }
 }

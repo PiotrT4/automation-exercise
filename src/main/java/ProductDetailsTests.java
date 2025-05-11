@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import pageobject.HomePage;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
@@ -19,15 +19,15 @@ public class ProductDetailsTests extends BaseTests {
                 .productInteractionComponent.clickViewById(productData1.getId());
 
         assertAll( "Should verify if product details are visible:",
-            () -> Assert.isTrue(productDetailsPage.isProductNameVisible(),
+            () -> Assert.assertTrue(productDetailsPage.isProductNameVisible(),
                     "Product name is not visible!"),
-            () -> Assert.isTrue(productDetailsPage.isCategoryVisible(),
+            () -> Assert.assertTrue(productDetailsPage.isCategoryVisible(),
                     "Product category is not visible!"),
-            () -> Assert.isTrue(productDetailsPage.isAvailabilityVisible(),
+            () -> Assert.assertTrue(productDetailsPage.isAvailabilityVisible(),
                     "Product availability is not visible!"),
-            () -> Assert.isTrue(productDetailsPage.isConditionVisible(),
+            () -> Assert.assertTrue(productDetailsPage.isConditionVisible(),
                     "Product condition is not visible!"),
-            () -> Assert.isTrue(productDetailsPage.isBrandVisible(),
+            () -> Assert.assertTrue(productDetailsPage.isBrandVisible(),
                     "Product brand is not visible!")
         );
     }
@@ -43,7 +43,7 @@ public class ProductDetailsTests extends BaseTests {
                 .fillInReviewForm(personalData)
                 .clickSubmit();
 
-        Assert.isTrue(productDetailsPage.ifReviewSucessMessageDisplyed(),
+        Assert.assertTrue(productDetailsPage.ifReviewSucessMessageDisplyed(),
                 "Review success message was not displayed!");
     }
 }

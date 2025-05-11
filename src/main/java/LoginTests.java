@@ -1,9 +1,9 @@
+import org.testng.Assert;
 import pageobject.DeletedAccountPage;
 import pageobject.HomePage;
 import pageobject.LoginPage;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LoginTests extends BaseTests {
@@ -22,7 +22,7 @@ public class LoginTests extends BaseTests {
                 .fillInLoginForm(personalData)
                 .headerComponent.goToDeletedAccount();
 
-        Assertions.assertTrue(deletedAccountPage.ifAccountDeleted(),
+        Assert.assertTrue(deletedAccountPage.ifAccountDeleted(),
                 "Account did not deleted!");
 
     }
@@ -40,7 +40,7 @@ public class LoginTests extends BaseTests {
                 .headerComponent.goToLogin()
                 .fillInIncorrectLoginForm(personalData);
 
-        Assertions.assertEquals("Your email or password is incorrect!", loginPage.getLoginError(),
+        Assert.assertEquals("Your email or password is incorrect!", loginPage.getLoginError(),
                 "Error doesn't display");
 
         request.deleteAccount();
@@ -60,7 +60,7 @@ public class LoginTests extends BaseTests {
                 .fillInLoginForm(personalData)
                 .headerComponent.goToLogout();
 
-        Assertions.assertEquals("Login to your account", loginPage.getLoginPageTitle(),
+        Assert.assertEquals("Login to your account", loginPage.getLoginPageTitle(),
                 "User didn't logout");
 
         request.deleteAccount();

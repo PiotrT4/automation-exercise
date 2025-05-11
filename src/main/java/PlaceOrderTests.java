@@ -1,7 +1,6 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pageobject.*;
 
@@ -52,7 +51,7 @@ public class PlaceOrderTests extends BaseTests {
                 .clickPayAndConfirmOrder()
                 .headerComponent.goToDeletedAccount();
 
-        Assertions.assertTrue(deletedAccountPage.ifAccountDeleted(),
+        Assert.assertTrue(deletedAccountPage.ifAccountDeleted(),
                 "Account did not deleted!");
 
         deletedAccountPage.clickContinue();
@@ -93,7 +92,7 @@ public class PlaceOrderTests extends BaseTests {
                 .clickPayAndConfirmOrder()
                 .headerComponent.goToDeletedAccount();
 
-        Assertions.assertTrue(deletedAccountPage.ifAccountDeleted(),
+        Assert.assertTrue(deletedAccountPage.ifAccountDeleted(),
                 "Account did not deleted!");
 
         deletedAccountPage.clickContinue();
@@ -126,7 +125,7 @@ public class PlaceOrderTests extends BaseTests {
                 .clickPayAndConfirmOrder()
                 .headerComponent.goToDeletedAccount();
 
-        Assertions.assertTrue(deletedAccountPage.ifAccountDeleted(),
+        Assert.assertTrue(deletedAccountPage.ifAccountDeleted(),
                 "Account did not deleted!");
 
         deletedAccountPage.clickContinue();
@@ -169,7 +168,7 @@ public class PlaceOrderTests extends BaseTests {
                 .clickPayAndConfirmOrder()
                 .clickDownloadInvoice();
 
-        Assert.isTrue(placeOrderPage.isInvoiceExists(filePathData.downloadFilesDirectoryPath,
+        Assert.assertTrue(placeOrderPage.isInvoiceExists(filePathData.downloadFilesDirectoryPath,
                         filePathData.invoiceFileName),
                 "Could not find invoice with name " + filePathData.invoiceFileName +
                         " in directory path: " + filePathData.downloadFilesDirectoryPath + "!");

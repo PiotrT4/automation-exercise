@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.BrandProductsPage;
@@ -16,7 +16,7 @@ public class BrandProductsTests extends BaseTests {
                 .brandsSidebarComponent.clickPoloBrand()
                 .brandsSidebarComponent.clickHMBrand();
 
-        Assert.isTrue(brandProductsPage.ifBrandProductsDisplayed(),
+        Assert.assertTrue(brandProductsPage.ifBrandProductsDisplayed(),
                 "Brand products did not displayed!");
     }
 }

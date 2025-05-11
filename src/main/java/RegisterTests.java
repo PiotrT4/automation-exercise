@@ -1,8 +1,7 @@
-import groovy.util.logging.Log;
+import org.testng.Assert;
 import pageobject.*;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RegisterTests extends BaseTests {
@@ -28,7 +27,7 @@ public class RegisterTests extends BaseTests {
                 .clickContinue(personalData.firstName)
                 .headerComponent.goToDeletedAccount();
 
-        Assertions.assertTrue(deletedAccountPage.ifAccountDeleted(),
+        Assert.assertTrue(deletedAccountPage.ifAccountDeleted(),
                 "Account did not deleted!");
     }
 
@@ -47,7 +46,7 @@ public class RegisterTests extends BaseTests {
 
         LoginPage loginPage2 = (LoginPage)loginPage1;
 
-        Assertions.assertTrue(loginPage2.ifDisplayRegisterError(),
+        Assert.assertTrue(loginPage2.ifDisplayRegisterError(),
                 "Error did not display.");
 
         request.deleteAccount();

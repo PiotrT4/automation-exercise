@@ -1,6 +1,6 @@
+import org.testng.Assert;
 import pageobject.HomePage;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ContactUsTests extends BaseTests {
@@ -16,6 +16,6 @@ public class ContactUsTests extends BaseTests {
                 .clickSubmit()
                 .clickHome();
 
-        Assertions.assertTrue(homePage.ifOnHomePage(), "You are not on home page!");
+        Assert.assertTrue(homePage.ifOnHomePage(), "You are not on home page!");
     }
 }

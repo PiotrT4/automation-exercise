@@ -1,4 +1,4 @@
-import dev.failsafe.internal.util.Assert;
+import org.testng.Assert;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import pageobject.BasePage;
@@ -26,7 +26,7 @@ public class CategoryProductsTests extends BaseTests  {
         CategoryProductsPage categoryProductsPage = categorySidebarComponent2
                 .clickTshirtsSubcategory();
 
-        Assert.isTrue(categoryProductsPage.isMenTshirtsCategoryTitleDisplayed(),
+        Assert.assertTrue(categoryProductsPage.isMenTshirtsCategoryTitleDisplayed(),
                 "T-shirts category is not displayed!");
     }
 }

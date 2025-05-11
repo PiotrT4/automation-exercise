@@ -1,6 +1,6 @@
+import org.testng.Assert;
 import pageobject.HomePage;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestCasesTests extends BaseTests {
@@ -13,7 +13,7 @@ public class TestCasesTests extends BaseTests {
         homePage.runBrowser()
                 .headerComponent.goToTestCases();
 
-        Assertions.assertEquals(browser.baseUrl + "/test_cases", browser.driver.getCurrentUrl(),
+        Assert.assertEquals(browser.baseUrl + "/test_cases", browser.driver.getCurrentUrl(),
                 "You are not on test cases page!");
     }
 
