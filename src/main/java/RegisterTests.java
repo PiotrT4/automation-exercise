@@ -39,14 +39,14 @@ public class RegisterTests extends BaseTests {
         request.createAccount();
 
         HomePage homePage = new HomePage(browser);
-        BasePage loginPage1 = homePage
+        BasePage basePage = homePage
                 .runBrowser()
                 .headerComponent.goToLogin()
                 .fillInShortRegisterForm(personalData);
 
-        LoginPage loginPage2 = (LoginPage)loginPage1;
+        LoginPage loginPage = (LoginPage) basePage;
 
-        Assert.assertTrue(loginPage2.ifDisplayRegisterError(),
+        Assert.assertTrue(loginPage.ifDisplayRegisterError(),
                 "Error did not display.");
 
         request.deleteAccount();
