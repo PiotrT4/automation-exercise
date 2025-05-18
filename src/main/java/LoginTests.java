@@ -4,7 +4,7 @@ import pageobject.HomePage;
 import pageobject.LoginPage;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTests {
 

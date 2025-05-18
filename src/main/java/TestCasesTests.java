@@ -1,7 +1,7 @@
 import org.testng.Assert;
 import pageobject.HomePage;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class TestCasesTests extends BaseTests {
 

@@ -2,7 +2,7 @@ import org.testng.Assert;
 import pageobject.*;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class RegisterTests extends BaseTests {
 

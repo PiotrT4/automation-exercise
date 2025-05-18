@@ -1,7 +1,7 @@
 import org.testng.Assert;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import pageobject.*;
 
 public class PlaceOrderTests extends BaseTests {

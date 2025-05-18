@@ -1,10 +1,9 @@
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import pageobject.HomePage;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import pageobject.ProductDetailsPage;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class ProductDetailsTests extends BaseTests {
 
@@ -18,18 +17,20 @@ public class ProductDetailsTests extends BaseTests {
                 .headerComponent.goToProducts()
                 .productInteractionComponent.clickViewById(productData1.getId());
 
-        assertAll( "Should verify if product details are visible:",
-            () -> Assert.assertTrue(productDetailsPage.isProductNameVisible(),
-                    "Product name is not visible!"),
-            () -> Assert.assertTrue(productDetailsPage.isCategoryVisible(),
-                    "Product category is not visible!"),
-            () -> Assert.assertTrue(productDetailsPage.isAvailabilityVisible(),
-                    "Product availability is not visible!"),
-            () -> Assert.assertTrue(productDetailsPage.isConditionVisible(),
-                    "Product condition is not visible!"),
-            () -> Assert.assertTrue(productDetailsPage.isBrandVisible(),
-                    "Product brand is not visible!")
-        );
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertTrue(productDetailsPage.isProductNameVisible(),
+                    "Product name is not visible!");
+        softAssert.assertTrue(productDetailsPage.isCategoryVisible(),
+                    "Product category is not visible!");
+        softAssert.assertTrue(productDetailsPage.isAvailabilityVisible(),
+                    "Product availability is not visible!");
+        softAssert.assertTrue(productDetailsPage.isConditionVisible(),
+                    "Product condition is not visible!");
+        softAssert.assertTrue(productDetailsPage.isBrandVisible(),
+                    "Product brand is not visible!");
+
+        softAssert.assertAll();
     }
 
     @Test

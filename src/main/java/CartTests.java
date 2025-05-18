@@ -1,11 +1,10 @@
 import org.testng.Assert;
 import helpers.RestApiRequests;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pageobject.CartPage;
 import pageobject.HomePage;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CartTests extends BaseTests {
 
@@ -22,25 +21,27 @@ public class CartTests extends BaseTests {
                 .productInteractionComponent.clickAddToCartById(productData2)
                 .cartModalComponent.clickViewCart();
 
-        assertAll( "Verify if products are in cart:",
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
-                        "First product is not added to cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData1),
-                        "First product price is not correct in cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData1),
-                        "First product quantity is not correct in cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData1),
-                        "First product total price is not correct in cart!"),
+        SoftAssert softAssert = new SoftAssert();
 
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData2.getId()),
-                        "Second product is not added to cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData2),
-                        "Second product price is not correct in cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData2),
-                        "Second product quantity is not correct in cart!"),
-                () -> Assert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData2),
-                        "Second product total price is not correct in cart!")
-        );
+        softAssert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData1.getId()),
+                        "First product is not added to cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData1),
+                        "First product price is not correct in cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData1),
+                        "First product quantity is not correct in cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData1),
+                        "First product total price is not correct in cart!");
+
+        softAssert.assertTrue(cartPage.cartCheckerComponent.isInCartById(productData2.getId()),
+                        "Second product is not added to cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyPriceById(productData2),
+                        "Second product price is not correct in cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyQuantityById(productData2),
+                        "Second product quantity is not correct in cart!");
+        softAssert.assertTrue(cartPage.cartCheckerComponent.verifyTotalPriceById(productData2),
+                        "Second product total price is not correct in cart!");
+
+        softAssert.assertAll();
     }
 
     @Test

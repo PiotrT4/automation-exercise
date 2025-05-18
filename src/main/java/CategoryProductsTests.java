@@ -1,6 +1,6 @@
 import org.testng.Assert;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import pageobject.BasePage;
 import pageobject.CategoryProductsPage;
 import pageobject.CategorySidebarComponent;

@@ -1,7 +1,5 @@
 import helpers.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.*;
 
 public class BaseTests {
 
@@ -33,7 +31,7 @@ public class BaseTests {
         filePathData = new FilePathData(testDataReader);
     }
 
-    @BeforeAll
+    @BeforeSuite
     public static void loadAndCreateTestData() {
         configurationReader = new ConfigurationReader();
         testDataReader = new TestDataReader();
@@ -42,14 +40,14 @@ public class BaseTests {
         createFilePathData();
     }
 
-    @BeforeEach
+    @BeforeMethod
     public void setup() throws NoSuchBrowserExpetion {
         BrowserFactory browserFactory = new BrowserFactory();
         browser = browserFactory.createInstance(configurationReader);
         createProductsData();
     }
 
-    @AfterEach
+    @AfterMethod
     public void quitDriver() {
         browser.driver.quit();
     }
